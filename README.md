@@ -4,8 +4,9 @@ This repository is meant to provide some examples of the more advanced features 
 ## references and cool stuff
 - [Foundry](https://github.com/foundry-rs/foundry)
 - [Foundry Book](https://github.com/foundry-rs/book)
+- [Foundry testdata Fuzz/Invariants](https://github.com/foundry-rs/foundry/tree/master/testdata/fuzz)
 - [forge-std](https://github.com/foundry-rs/forge-std)
-- [forge-std invariants](https://github.com/foundry-rs/forge-std/blob/master/src/InvariantTest.sol)
+- [forge-std InvariantTest](https://github.com/foundry-rs/forge-std/blob/master/src/InvariantTest.sol)
 - [maple-labs invariant test example](https://github.com/maple-labs/revenue-distribution-token/blob/e0eca03c2ff05c36000a097de678543d7234f7cc/contracts/test/Invariants.t.sol)
 - [Optimism Bedrock invariant examples](https://github.com/ethereum-optimism/optimism/tree/15f968f549a55c1808229d5b31fc310cc619b9f6/packages/contracts-bedrock/contracts/test/invariants)
 - [Matt Solomon's solidity-sandbox invariants](https://github.com/mds1/solidity-sandbox/blob/main/test/4_InvariantNonceGoUp.t.sol)
