@@ -6,7 +6,7 @@ contract SimpleInvariant {
     bool public bar = false;
 
     function setFoo() public {
-        foo = true;
+        foo = false;
     }
 
     function setBar() public {
