@@ -18,8 +18,7 @@ contract SimpleInvariant {
         return foo && bar;
     }
 
-}
-*/
+}*/
 
 pragma solidity ^0.8.15;
 
@@ -53,5 +52,4 @@ contract SimpleInvariantTest is Test, InvariantTest {
     function invariantTest() public {
         assertFalse(simpleInvariant.foobar());
     }
-
 }

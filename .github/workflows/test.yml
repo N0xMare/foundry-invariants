@@ -1,6 +1,6 @@
 name: test
 
-on: workflow_dispatch
+on: push
 
 env:
   FOUNDRY_PROFILE: ci
@@ -27,6 +27,10 @@ jobs:
           forge --version
           forge build --sizes
         id: build
+
+      - name: Lint
+        run: forge fmt && git diff --exit-code
+        id: lint
 
       - name: Run Forge tests
         run: |
