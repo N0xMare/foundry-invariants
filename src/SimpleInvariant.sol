@@ -1,7 +1,6 @@
-pragma solidity ^0.8.15;
+pragma solidity 0.8.17;
 
 contract SimpleInvariant {
-
     bool public foo = false;
     bool public bar = false;
 
@@ -13,8 +12,7 @@ contract SimpleInvariant {
         bar = true;
     }
 
-    function foobar() public view returns(bool) {
+    function foobar() public view returns (bool) {
         return foo && bar;
     }
-
 }

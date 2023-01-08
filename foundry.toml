@@ -6,4 +6,7 @@ libs = ['lib']
 [fuzz]
 runs = 1024
 
+[fmt]
+bracket_spacing = true
+
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config

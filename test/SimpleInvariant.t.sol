@@ -18,8 +18,7 @@ contract SimpleInvariant {
         return foo && bar;
     }
 
-}
-*/
+}*/
 
 pragma solidity ^0.8.15;
 
