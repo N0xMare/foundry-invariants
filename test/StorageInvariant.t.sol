@@ -24,6 +24,7 @@ contract StorageInvariantTest is Test, InvariantTest {
     /// run the test multiple times and you will notice the invariant fuzzer forming different pseudo-random call-chains 
     /// before arriving at store(0) which changes num2 to 1 breaking the invariant.
     function invariantTestStore() public {
+        vm.expectRevert("Invariant broken by store(0)");
         assertEq(storageInvariant.getNum2(), 0);
     }
 
