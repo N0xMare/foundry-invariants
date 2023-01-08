@@ -1,5 +1,5 @@
 /*
-pragma solidity ^0.8.15;
+pragma solidity 0.8.17;
 
 contract SimpleInvariant {
 
@@ -20,7 +20,7 @@ contract SimpleInvariant {
 
 }*/
 
-pragma solidity ^0.8.15;
+pragma solidity 0.8.17;
 
 import "forge-std/Test.sol";
 import "forge-std/InvariantTest.sol";

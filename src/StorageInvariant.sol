@@ -1,4 +1,4 @@
-pragma solidity ^0.8.15;
+pragma solidity 0.8.17;
 
 contract StorageInvariant {
 
@@ -14,11 +14,11 @@ contract StorageInvariant {
         owner = address(0xbeef);
     }
 
-    function getNum1() public view returns(uint256) {
+    function getNum1() public view returns (uint256) {
         return num1;
     }
 
-    function getNum2() public view returns(uint256) {
+    function getNum2() public view returns (uint256) {
         return num2;
     }
 
