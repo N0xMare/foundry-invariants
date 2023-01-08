@@ -21,8 +21,8 @@ contract StorageInvariantTest is Test, InvariantTest {
     }
 
     /// @notice this invariant intentionally fails to show that any address can call "store()" changing num2's value to 1.
-    /// uncomment and run the test multiple times and you will notice the invariant fuzzer forming different pseudo-random 
-    // call-chains before arriving at store(0) which changes num2 to 1 breaking the invariant.
+    /// run the test multiple times and you will notice the invariant fuzzer forming different pseudo-random call-chains
+    /// before arriving at store(0) which changes num2 to 1 breaking the invariant.
     function invariantTestStore() public {
         //assertEq(storageInvariant.getNum2(), 0);
     }
