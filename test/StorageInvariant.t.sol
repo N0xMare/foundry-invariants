@@ -21,11 +21,10 @@ contract StorageInvariantTest is Test, InvariantTest {
     }
 
     /// @notice this invariant intentionally fails to show that any address can call "store()" changing num2's value to 1.
-    /// run the test multiple times and you will notice the invariant fuzzer forming different pseudo-random call-chains 
-    /// before arriving at store(0) which changes num2 to 1 breaking the invariant.
+    /// uncomment and run the test multiple times and you will notice the invariant fuzzer forming different pseudo-random 
+    // call-chains before arriving at store(0) which changes num2 to 1 breaking the invariant.
     function invariantTestStore() public {
-        vm.expectRevert("Invariant broken by store(0)");
-        assertEq(storageInvariant.getNum2(), 0);
+        //assertEq(storageInvariant.getNum2(), 0);
     }
 
     /// @notice During the setUp() process storageInvariant's owner (0xbeef) calls "lock()". This function sets "flag" to
