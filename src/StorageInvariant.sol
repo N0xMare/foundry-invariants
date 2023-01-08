@@ -1,7 +1,6 @@
 pragma solidity 0.8.17;
 
 contract StorageInvariant {
-
     address public owner;
     bool public flag = true;
     uint256 public num1 = 1;
@@ -24,7 +23,7 @@ contract StorageInvariant {
 
     /// @notice lock/unlock use of "protectedStore()" by the owner
     function lock(bool _state) public {
-        if(msg.sender != owner) {
+        if (msg.sender != owner) {
             revert OnlyOwner();
         }
         flag = _state;
@@ -39,10 +38,10 @@ contract StorageInvariant {
 
     /// @notice mutate num1, only callable by the owner when lock is false
     function protectedStore(uint256 _number) public {
-        if(msg.sender != owner) {
+        if (msg.sender != owner) {
             revert OnlyOwner();
         }
-        if(flag = true) {
+        if (flag = true) {
             revert FlagLocked();
         }
         num1 = _number;

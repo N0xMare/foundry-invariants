@@ -42,7 +42,7 @@ contract SimpleInvariantTest is Test, InvariantTest {
     /// in the setUp() function. In this test we are only using targetContract() for SimpleInvariant and nothing else so external functions of
     /// SimpleInvariant will be called to see if the invariant is broken by any possible sequence.
     ///
-    /// As you can see, the invariant passes because the && operator has left-to-right associativity with the boolean variable "foo" which 
+    /// As you can see, the invariant passes because the && operator has left-to-right associativity with the boolean variable "foo" which
     /// remains false always. Even if setFoo() is called by the invariant test the variable will remain in the same state, false, and therefore
     /// the return value from "foobar()" remains constant. Go ahead and change the SimpleInvariant contract's foo or bar values as well as
     /// what setFoo() and setBar() do to make the invariant fail and you will see forge test output specific call chains that make it fail.

@@ -13,11 +13,11 @@ contract StorageInvariantTest is Test, InvariantTest {
         storageInvariant = new StorageInvariant(); // deploy example contract
         targetContract(address(storageInvariant)); // target "StorageInvariant"
 
-        vm.prank(address(0xbeef)); 
-        storageInvariant.lock(true);               // storageInvariant's owner calls "unlock()" setting "flag" to true
+        vm.prank(address(0xbeef));
+        storageInvariant.lock(true); // storageInvariant's owner calls "unlock()" setting "flag" to true
 
-        initNum1 = storageInvariant.getNum1();     // get initial value of num1
-        initNum2 = storageInvariant.getNum2();     // get initial value of num2
+        initNum1 = storageInvariant.getNum1(); // get initial value of num1
+        initNum2 = storageInvariant.getNum2(); // get initial value of num2
     }
 
     /// @notice this invariant intentionally fails to show that any address can call "store()" changing num2's value to 1.
@@ -34,5 +34,4 @@ contract StorageInvariantTest is Test, InvariantTest {
         emit log_named_uint("Initial number", initNum1);
         assertEq(initNum1, storageInvariant.getNum1());
     }
-
 }
