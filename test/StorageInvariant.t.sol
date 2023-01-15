@@ -1,8 +1,8 @@
 pragma solidity 0.8.17;
 
-import "forge-std/Test.sol";
-import "forge-std/InvariantTest.sol";
-import "../src/StorageInvariant.sol";
+import { Test } from "forge-std/Test.sol";
+import { InvariantTest } from "forge-std/InvariantTest.sol";
+import { StorageInvariant } from "../src/StorageInvariant.sol";
 
 contract StorageInvariantTest is Test, InvariantTest {
     StorageInvariant public storageInvariant;
@@ -16,8 +16,16 @@ contract StorageInvariantTest is Test, InvariantTest {
         vm.prank(address(0xbeef));
         storageInvariant.lock(true); // storageInvariant's owner calls "unlock()" setting "flag" to true
 
-        initNum1 = storageInvariant.getNum1(); // get initial value of num1
-        initNum2 = storageInvariant.getNum2(); // get initial value of num2
+        initNum1 = getNum1(); // get initial value of num1
+        initNum2 = getNum2(); // get initial value of num2
+    }
+
+    function getNum1() public view returns (uint256) {
+        return storageInvariant.num1();
+    }
+
+    function getNum2() public view returns (uint256) {
+        return storageInvariant.num2();
     }
 
     /// @notice this invariant intentionally fails to show that any address can call "store()" changing num2's value to 1.
@@ -32,6 +40,6 @@ contract StorageInvariantTest is Test, InvariantTest {
     /// "protectedStore()". As long as "flag" is false and the lock is activated the invariant holds.
     function invariantTestProtectedStore() public {
         emit log_named_uint("Initial number", initNum1);
-        assertEq(initNum1, storageInvariant.getNum1());
+        assertEq(initNum1, getNum1());
     }
 }

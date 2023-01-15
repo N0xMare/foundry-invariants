@@ -13,14 +13,6 @@ contract StorageInvariant {
         owner = address(0xbeef);
     }
 
-    function getNum1() public view returns (uint256) {
-        return num1;
-    }
-
-    function getNum2() public view returns (uint256) {
-        return num2;
-    }
-
     /// @notice lock/unlock use of "protectedStore()" by the owner
     function lock(bool _state) public {
         if (msg.sender != owner) {

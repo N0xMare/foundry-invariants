@@ -22,9 +22,9 @@ contract SimpleInvariant {
 
 pragma solidity 0.8.17;
 
-import "forge-std/Test.sol";
-import "forge-std/InvariantTest.sol";
-import "../src/SimpleInvariant.sol";
+import { Test } from "forge-std/Test.sol";
+import { InvariantTest } from "forge-std/InvariantTest.sol";
+import { SimpleInvariant } from "../src/SimpleInvariant.sol";
 
 contract SimpleInvariantTest is Test, InvariantTest {
     SimpleInvariant public simpleInvariant;
