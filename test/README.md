@@ -2,8 +2,8 @@
 
 The Invariant testing feature in Foundry comprises of a fuzzing utility which uses both random and "dictionary" values. The dictionary contains items in the compilation artifacts of the contract(s) which is then used in the invariant test alongside randomized inputs. The "dictionary_weight" determines the percentage of "random" contract and "random" non-view calldata used by the fuzzer. With a dictionary_weight of X%, the fuzzer will use random values for (100 - X)% of the runs.
 
-Run `setUp()` and save off resulting state.
-For (i = 0; i < numberOfInvariantRuns; i++) {
+- Run `setUp()` and save off resulting state.
+- For (i = 0; i < numberOfInvariantRuns; i++) {
   0. Set global state to post `setUp()` state.
   1. Check that the invariant holds.
   2. Choose "random" contract + "random" non-view calldata to call on that contract.
