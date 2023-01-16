@@ -2,15 +2,15 @@
 
 The Invariant testing feature in Foundry comprises of a fuzzing utility which uses both random and "dictionary" values. The dictionary contains items in the compilation artifacts of the contract(s) which is then used in the invariant test alongside randomized inputs. The "dictionary_weight" determines the percentage of "random" contract and "random" non-view calldata used by the fuzzer. With a dictionary_weight of X%, the fuzzer will use random values for (100 - X)% of the runs.
 
-- Run `setUp()` and save off resulting state.
-- for (i = 0; i < numberOfInvariantRuns; i++) {
-0. Set global state to post `setUp()` state.
-1. Check that the invariant holds.
-2. Choose "random" contract + "random" non-view calldata to call on that contract.
-3. If `fail_on_revert = true` and call reverts, invariant failed.
-4. If `fail_on_revert = false` and call reverts, continue.
-5. Check invariant.
-- Repeat steps 2-5 `depth` number of times.
+Run `setUp()` and save off resulting state.
+For (i = 0; i < numberOfInvariantRuns; i++) {
+  0. Set global state to post `setUp()` state.
+  1. Check that the invariant holds.
+  2. Choose "random" contract + "random" non-view calldata to call on that contract.
+  3. If `fail_on_revert = true` and call reverts, invariant failed.
+  4. If `fail_on_revert = false` and call reverts, continue.
+  5. Check invariant.
+Repeat steps 2-5 `depth` number of times.
 
 The main advantage in using invariant tests rather than unit/integration tests with the same test assertions, is in order to traverse different call-chain possibilties within the contract(s) without explicitly defining them all. Access control in evm contracts is meant be highly verbose and we can use this to our advantage when invariant testing by defining the set of callers that can possibly call functions in the contract(s). This could be simply a single address like "onlyOwner", a set of addresses, or plain external/public functions. Specifying both the caller(s) and the targeted contract(s) for the fuzzer to run simulations on is how one can isolate and test invariants for specific cases presented in the contract code.
 
