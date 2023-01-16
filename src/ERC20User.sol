@@ -2,7 +2,6 @@ pragma solidity 0.8.17;
 
 import { MockERC20 } from "../test/mocks/MockERC20.sol";
 
-/// @notice This contract "ERC20User" 
 contract ERC20User {
     MockERC20 token;
     uint256 public supply;
