@@ -16,23 +16,15 @@ contract StorageInvariantTest is Test, InvariantTest {
         vm.prank(address(0xbeef));
         storageInvariant.lock(true); // storageInvariant's owner calls "unlock()" setting "flag" to true
 
-        initNum1 = getNum1(); // get initial value of num1
-        initNum2 = getNum2(); // get initial value of num2
-    }
-
-    function getNum1() public view returns (uint256) {
-        return storageInvariant.num1();
-    }
-
-    function getNum2() public view returns (uint256) {
-        return storageInvariant.num2();
+        initNum1 = storageInvariant.num1(); // get initial value of num1
+        initNum2 = storageInvariant.num2(); // get initial value of num2
     }
 
     /// @notice this invariant intentionally fails to show that any address can call "store()" changing num2's value to 1.
     /// run the test multiple times and you will notice the invariant fuzzer forming different pseudo-random call-chains
     /// before arriving at store(0) which changes num2 to 1 breaking the invariant.
     function invariantTestStore() public {
-        //assertEq(storageInvariant.getNum2(), 0);
+        //assertEq(storageInvariant.num2(), 0);
     }
 
     /// @notice During the setUp() process storageInvariant's owner (0xbeef) calls "lock()". This function sets "flag" to
@@ -40,6 +32,6 @@ contract StorageInvariantTest is Test, InvariantTest {
     /// "protectedStore()". As long as "flag" is false and the lock is activated the invariant holds.
     function invariantTestProtectedStore() public {
         emit log_named_uint("Initial number", initNum1);
-        assertEq(initNum1, getNum1());
+        assertEq(initNum1, storageInvariant.num1());
     }
 }
